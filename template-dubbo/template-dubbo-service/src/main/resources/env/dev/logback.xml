@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+<!-- properties -->
+    <property name="ENV" value="dev" />
+    <property name="NAME" value="template-dubbo-service" />
+
+<!-- file -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>./logs/log-%d{yyyyMMdd}.log</FileNamePattern>
+            <MaxHistory>180</MaxHistory>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </layout>
+    </appender>
+    
+<!-- email -->
+    <appender name="EMAIL" class="ch.qos.logback.classic.net.SMTPAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY </onMismatch>
+        </filter>
+        <smtpHost>smtp.126.com</smtpHost>
+        <smtpPort>25</smtpPort>
+        <ssl>false</ssl>
+        <username>hxzxg_error@126.com</username>
+        <password>iaurvembtnwkmfhs</password>
+        <from>hxzxg_error@126.com</from>
+        <to>hxzxg_error@126.com</to>
+        <asynchronousSending>true</asynchronousSending>
+        <subject>${ENV}-${NAME}</subject>
+        <charsetEncoding>UTF-8</charsetEncoding>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </layout>
+    </appender>
+    
+<!-- logger -->
+    <root level="INFO">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="EMAIL" />
+    </root>
+</configuration>
