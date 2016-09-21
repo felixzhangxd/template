@@ -1,9 +1,14 @@
 package com.firebugsoft.template.dubbo.api.vo;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
 	private Long id;
 	private String name;
 	
+	public User() {
+	}
+
 	public User(Long id, String name) {
 		this.id = id;
 		this.name = name;

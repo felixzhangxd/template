@@ -6,8 +6,8 @@
     <id>release</id>
     <includeBaseDirectory>true</includeBaseDirectory>
     <formats>
-        <!--<format>dir</format>-->
-        <format>zip</format>
+        <format>dir</format>
+        <!-- <format>zip</format> -->
     </formats>
     <fileSets>
         <fileSet>

@@ -11,8 +11,8 @@
     <dubbo:application name="template-dubbo-service-consumer" />
 
     <!-- 使用zookeeper注册中心暴露服务地址 -->
-    <dubbo:registry protocol="zookeeper" address="${zookeeper.host}" />
+    <dubbo:registry protocol="zookeeper" address="192.168.0.101:2181" />
 
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:reference id="userService" interface="com.firebugsoft.template.dubbo.api.IUserService" timeout="10000" retries="0" />
+    <dubbo:reference id="userService" interface="com.firebugsoft.template.dubbo.api.IUserService" timeout="2000" retries="0" />
 </beans>

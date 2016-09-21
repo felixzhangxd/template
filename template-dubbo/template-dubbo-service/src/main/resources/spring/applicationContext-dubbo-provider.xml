@@ -18,5 +18,5 @@
     <dubbo:protocol name="dubbo" port="20880"/>
 
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service interface="com.firebugsoft.template.dubbo.service.IUserService" ref="userService" timeout="0" retries="0"/>
+    <dubbo:service interface="com.firebugsoft.template.dubbo.api.IUserService" ref="userService" timeout="0" retries="1"/>
 </beans>

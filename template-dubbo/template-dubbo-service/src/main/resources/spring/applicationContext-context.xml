@@ -8,6 +8,6 @@
     
     <context:property-placeholder location="classpath:system.properties" />
     
-    <context:component-scan base-package="com.firebugsoft.template.dubbo" />
+    <context:component-scan base-package="com.firebugsoft.template.dubbo.service" />
     
 </beans>
