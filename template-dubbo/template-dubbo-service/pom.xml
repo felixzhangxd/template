@@ -150,6 +150,7 @@
                 <artifactId>appassembler-maven-plugin</artifactId>
                 <version>1.10</version>
                 <configuration>
+                    <encoding>UTF-8</encoding>
                     <repositoryLayout>flat</repositoryLayout>
                     <repositoryName>lib</repositoryName>
                     <configurationDirectory>conf</configurationDirectory>
@@ -157,6 +158,7 @@
                     <configurationSourceDirectory>src/main/resources/env/${env}</configurationSourceDirectory>
                     <includeConfigurationDirectoryInClasspath>true</includeConfigurationDirectoryInClasspath>
                     <target>${project.build.directory}</target>
+                    <logsDirectory>logs</logsDirectory>
                     <daemons>
                         <daemon>
                             <id>${project.name}</id>

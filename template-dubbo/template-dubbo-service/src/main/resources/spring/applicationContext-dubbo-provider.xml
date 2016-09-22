@@ -6,6 +6,10 @@
     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
     http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
+    <dubbo:application ...>
+        <dubbo:parameter key="shutdown.timeout" value="60000" /> <!-- 单位:毫秒 -->
+    </dubbo:application>
+    
     <dubbo:monitor protocol="registry" />
 
     <!-- 消费方应用信息 -->
