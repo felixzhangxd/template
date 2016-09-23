@@ -10,6 +10,7 @@
     
     <properties>
         <maven.test.skip>true</maven.test.skip>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     
     <profiles>
@@ -18,6 +19,9 @@
             <properties>
                 <env>local</env>
             </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
         </profile>
         <profile>
             <id>dev</id>
@@ -122,13 +126,7 @@
         <defaultGoal>package</defaultGoal>
         <resources>
             <resource>
-                <directory>src/main/resources</directory>
-                <excludes>
-                    <exclude>env/**</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <directory>src/main/resources/env/${env}</directory>
+                <directory>src/main/resources/${env}</directory>
                 <targetPath>${project.build.outputDirectory}</targetPath>
                 <filtering>true</filtering>
             </resource>
@@ -140,8 +138,9 @@
                 <version>2.4</version>
                 <configuration>
                     <excludes>
-                        <exclude>*.xml</exclude>
                         <exclude>*.properties</exclude>
+                        <exclude>*.xml</exclude>
+                        <exclude>spring/</exclude>
                     </excludes>
                 </configuration>
             </plugin>
@@ -155,7 +154,7 @@
                     <repositoryName>lib</repositoryName>
                     <configurationDirectory>conf</configurationDirectory>
                     <copyConfigurationDirectory>true</copyConfigurationDirectory>
-                    <configurationSourceDirectory>src/main/resources/env/${env}</configurationSourceDirectory>
+                    <configurationSourceDirectory>src/main/resources/${env}</configurationSourceDirectory>
                     <includeConfigurationDirectoryInClasspath>true</includeConfigurationDirectoryInClasspath>
                     <target>${project.build.directory}</target>
                     <logsDirectory>logs</logsDirectory>
@@ -166,7 +165,6 @@
                             <platforms>
                                 <platform>jsw</platform>
                             </platforms>
-                            <wrapperLogFile>logs/${project.name}.log</wrapperLogFile>
                             <generatorConfigurations>
                                 <generatorConfiguration>
                                     <generator>jsw</generator>
@@ -187,6 +185,10 @@
                                             <value>lib</value>
                                         </property>
                                         <property>
+                                            <name>wrapper.logfile</name>
+                                            <value>./logs/wrapper.log</value>
+                                        </property>
+                                        <property>
                                             <name>wrapper.ping.timeout</name>
                                             <value>300</value>
                                         </property>
@@ -203,6 +205,7 @@
                                 <extraArguments>
                                     <extraArgument>-server</extraArgument>
                                     <extraArgument>-Ddubbo.shutdown.hook=true</extraArgument>
+                                    <extraArgument>-Ddubbo.shutdown.timeout=60000</extraArgument>
                                 </extraArguments>
                             </jvmSettings>
                         </daemon>

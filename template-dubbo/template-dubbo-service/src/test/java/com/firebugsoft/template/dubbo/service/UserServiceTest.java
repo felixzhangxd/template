@@ -17,7 +17,7 @@ public class UserServiceTest {
 
     @Test
     public void findById() {
-    	System.out.println(userService.findById(1000L));
-    	System.out.println(userService.findById(3000L));
+    	System.out.println(userService.findById(20000L));
+    	System.out.println("end");
     }
 }
