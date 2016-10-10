@@ -11,5 +11,6 @@
     <modules>
         <module>template-api</module>
         <module>template-dubbo</module>
+        <module>template-mbg</module>
     </modules>
 </project>
