@@ -13,4 +13,13 @@
         <module>template-dubbo</module>
         <module>template-mbg</module>
     </modules>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.firebugsoft</groupId>
+                <artifactId>common-mvc</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
