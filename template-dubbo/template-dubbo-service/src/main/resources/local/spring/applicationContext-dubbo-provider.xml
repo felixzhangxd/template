@@ -7,6 +7,6 @@
     http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service ref="userService" interface="com.firebugsoft.template.dubbo.api.IUserService" timeout="120000"/>
+    <dubbo:service ref="userService" interface="com.firebugsoft.template.dubbo.api.IUserService" timeout="3000"/>
     
 </beans>

@@ -17,9 +17,6 @@ public class UserServiceTest {
 
     @Test
     public void findById() throws InterruptedException {
-    	System.out.println("start: " + System.currentTimeMillis());
-    	System.out.println(userService.findById(1000L));
-    	System.out.println("end: " + System.currentTimeMillis());
-    	Thread.sleep(10000000L);
+    	System.out.println(userService.findById(10000L));
     }
 }
